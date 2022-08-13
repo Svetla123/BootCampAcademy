@@ -1,0 +1,76 @@
+package com.BootCampAcademy.demo.service.impl;
+
+import com.BootCampAcademy.demo.Model.UserTest;
+import com.BootCampAcademy.demo.repository.UserRepository;
+import com.BootCampAcademy.demo.repository.UserTestRepository;
+import com.BootCampAcademy.demo.service.IUserTestService;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+@Service
+public class UserTestService implements IUserTestService {
+
+    private UserTestRepository userTests;
+    public UserTestService(UserTestRepository userTests) {
+        super();
+        this.userTests = userTests;
+    }
+
+    @Override
+    public UserTest findUserTestById(Long id) {
+        try {
+           return this.userTests.findById(id).get();
+        }
+        catch (Exception e) {
+            return null;
+        }
+    }
+    @Override
+    public List<UserTest> findAllUserTests() {
+        return this.userTests.findAll();
+    }
+
+    @Override
+    public boolean deleteUserTest(Long id) {
+        try {
+            this.userTests.deleteById(id);
+        }
+        catch (Exception e) {
+            return false;
+        }
+        finally {
+            return true;
+        }
+    }
+
+    @Override
+    public UserTest saveUserTest(UserTest userTest) {
+        return this.userTests.save(userTest);
+    }
+
+    @Override
+    public UserTest updateUserTest(Long id, UserTest userTest) {
+        UserTest oldUserTest = this.findUserTestById(id);
+        if (oldUserTest == null) {
+            return null;
+        }else {
+            if (userTest.getSubmitedSolution()!= null) {
+                oldUserTest.setSubmitedSolution(userTest.getSubmitedSolution());
+            }
+            if (userTest.getAchivedPoints() != 0) {
+                oldUserTest.setAchivedPoints(userTest.getAchivedPoints());
+            }
+            if (userTest.getUser() != null) {
+                oldUserTest.setUser(userTest.getUser());
+            }
+
+            if (userTest.getTest() != null) {
+                oldUserTest.setTest(userTest.getTest());
+            }
+            if (userTest.getCorrector() != null) {
+                oldUserTest.setCorrector(userTest.getCorrector());
+            }
+        }
+        return this.userTests.save(oldUserTest);
+    }
+}
