@@ -2,13 +2,10 @@ package com.BootCampAcademy.demo.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-
 import javax.persistence.*;
-
 import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-
 import java.time.Instant;
 import java.util.List;
 
@@ -29,10 +26,4 @@ public class Topic extends AppModel{
     @OneToMany (mappedBy = "topic")
     @JsonIgnore
     private List<Meeting> meetings;
-
-//    @CreatedDate
-//    @Column(name = "created_at", nullable = false, updatable = false)
-//    // @LastModifiedDate
-//    private Instant createdAt;
-
 }

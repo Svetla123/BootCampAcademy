@@ -2,6 +2,7 @@ package com.BootCampAcademy.demo.Model;
 
 import lombok.Data;
 import org.hibernate.annotations.ColumnDefault;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -16,16 +17,13 @@ public class UserTest extends AppModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
     private long Id;
-    //ako uspostavim created_at ovo mi ne treba
-//    @Column(nullable = false)
-//    private Instant uploadDate;
+
     @Column(nullable = false)
     private String submitedSolution;
     @ColumnDefault("1")
     private boolean state;
     @ColumnDefault("0")
     private long achivedPoints;
-
 
     @ManyToOne
     @JoinColumn(name = "solved_by")

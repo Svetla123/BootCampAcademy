@@ -2,14 +2,10 @@ package com.BootCampAcademy.demo.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "meetings")

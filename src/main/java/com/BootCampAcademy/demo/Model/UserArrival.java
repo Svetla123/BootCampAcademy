@@ -1,22 +1,16 @@
 package com.BootCampAcademy.demo.Model;
 
 import lombok.Data;
-
 import javax.persistence.*;
-import java.time.Instant;
-import java.time.LocalDate;
-
 @Data
 @Entity
 @Table(name = "users_arrivals")
 public class UserArrival extends AppModel {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
     private long Id;
-
     private boolean arrivalApproved;
 
     @ManyToOne

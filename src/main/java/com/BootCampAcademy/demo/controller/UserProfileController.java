@@ -1,9 +1,7 @@
 package com.BootCampAcademy.demo.controller;
 
-import com.BootCampAcademy.demo.Model.EducationLevel;
 import com.BootCampAcademy.demo.Model.UserProfile;
 import com.BootCampAcademy.demo.service.IUserProfileService;
-import com.BootCampAcademy.demo.service.impl.EducationLevelService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,17 +12,15 @@ import java.util.List;
 public class UserProfileController {
 
     private IUserProfileService userProfileService;
-    private EducationLevelService educationLevelService;
 
-    public UserProfileController(IUserProfileService userProfileService, EducationLevelService educationLevelService) {
+    public UserProfileController(IUserProfileService userProfileService) {
         super();
         this.userProfileService = userProfileService;
-        this.educationLevelService = educationLevelService;
     }
 
     @GetMapping("/userProfiles")
     public List<UserProfile> findAll() {
-        List<UserProfile> userProfiles = this.userProfileService.findAllUserProfiles();;
+        List<UserProfile> userProfiles = this.userProfileService.findAllUserProfiles();
         return userProfiles;
     }
 
@@ -48,27 +44,15 @@ public class UserProfileController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("UserProfile with id " + id + " not found");
         }
     }
-
-//expected name of education level
+//only create that works like "name" : "Bachelor"
     @PostMapping ("/userProfiles")
     public ResponseEntity<?> create (@RequestBody UserProfile userProfile) {
-        userProfile.getEducationLevel().setId(educationLevelService.findEducationLevelByName(userProfile.getEducationLevel().getName()));
-//        EducationLevel educationLevel = userProfile.getEducationLevel();
-//        Long educationLevelId = educationLevelService.findEducationLevelByName(educationLevel.getName());
-//        educationLevel.setId(educationLevelId);
-//        userProfile.setEducationLevel(educationLevel);
         UserProfile newUserProfile = this.userProfileService.createUserProfile(userProfile);
         return ResponseEntity.ok(newUserProfile);
     }
 
     @PutMapping("/userProfiles/{id}")
     public ResponseEntity<?> update (@PathVariable Long id, @RequestBody UserProfile userProfile) {
-        if (userProfile.getEducationLevel() != null){
-            EducationLevel educationLevel = userProfile.getEducationLevel();
-            Long educationLevelId = educationLevelService.findEducationLevelByName(educationLevel.getName());
-            educationLevel.setId(educationLevelId);
-            userProfile.setEducationLevel(educationLevel);
-        }
         UserProfile updatedUserProfile = this.userProfileService.updateUserProfile(id, userProfile);
         if (updatedUserProfile == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("UserProfile with id " + id + " not found");

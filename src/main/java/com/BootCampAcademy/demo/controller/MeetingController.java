@@ -1,9 +1,7 @@
 package com.BootCampAcademy.demo.controller;
 
 import com.BootCampAcademy.demo.Model.Meeting;
-import com.BootCampAcademy.demo.Model.Topic;
 import com.BootCampAcademy.demo.service.IMeetingService;
-import com.BootCampAcademy.demo.service.ITopicService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +12,10 @@ import java.util.List;
 public class MeetingController {
     private IMeetingService meetingService;
 
-    private ITopicService topicService;
 
-    public MeetingController(IMeetingService meetingService, ITopicService topicService) {
+    public MeetingController(IMeetingService meetingService) {
         super();
         this.meetingService = meetingService;
-        this.topicService = topicService;
     }
 
     @GetMapping("/meetings")
@@ -39,11 +35,6 @@ public class MeetingController {
 
     @PostMapping("/meetings")
     public ResponseEntity<?> create (@RequestBody Meeting meeting) {
-        meeting.setTopic(topicService.findTopicById(meeting.getTopic().getId()));
-//        Topic topic = meeting.getTopic();
-//        Long topicId = topicService.findTopicByName(topic.getName());
-//        topic.setId(topicId);
-//        meeting.setTopic(topic);
        Meeting newMeeting = this.meetingService.createMeeting(meeting);
         return ResponseEntity.ok(newMeeting);
     }
@@ -62,12 +53,6 @@ public class MeetingController {
 
     @PutMapping("/meetings/{id}")
     public ResponseEntity<?> update (@RequestBody Meeting meeting, @PathVariable Long id) {
-        if (meeting.getTopic() != null){
-            Topic topic = meeting.getTopic();
-            Long topicId = topicService.findTopicByName(topic.getName());
-            topic.setId(topicId);
-            meeting.setTopic(topic);
-        }
         Meeting updatedMeeting = this.meetingService.updateMeeting(meeting, id);
         if (updatedMeeting == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Meeting with id " + id + " not found");

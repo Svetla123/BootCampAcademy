@@ -1,10 +1,7 @@
 package com.BootCampAcademy.demo.Model;
 
-import java.security.Timestamp;
 import java.util.List;
-
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 

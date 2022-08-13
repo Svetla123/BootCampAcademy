@@ -20,7 +20,6 @@ public class UserTestController {
     @GetMapping("/userTests")
     public List<UserTest> findAll() {
         List <UserTest> userTests = this.userTestService.findAllUserTests();
-        System.out.println(userTests);
         return userTests;
     }
 

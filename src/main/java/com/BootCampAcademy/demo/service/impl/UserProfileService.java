@@ -1,5 +1,6 @@
 package com.BootCampAcademy.demo.service.impl;
 
+import com.BootCampAcademy.demo.Model.EducationLevel;
 import com.BootCampAcademy.demo.Model.UserProfile;
 import com.BootCampAcademy.demo.repository.UserProfileRepository;
 import com.BootCampAcademy.demo.service.IUserProfileService;
@@ -10,9 +11,11 @@ import java.util.List;
 @Service
 public class UserProfileService implements IUserProfileService {
     private UserProfileRepository userProfiles;
-    private UserProfileService(UserProfileRepository userProfiles) {
+    private EducationLevelService educationLevelService;
+    private UserProfileService(UserProfileRepository userProfiles, EducationLevelService educationLevelService) {
         super();
         this.userProfiles = userProfiles;
+        this.educationLevelService = educationLevelService;
     }
 
     @Override
@@ -45,6 +48,11 @@ public class UserProfileService implements IUserProfileService {
 
     @Override
     public UserProfile createUserProfile(UserProfile userProfile) {
+        EducationLevel educationLevel = userProfile.getEducationLevel();
+        String educationLevelName= educationLevel.getName();
+        Long educationLevelId = this.educationLevelService.findEducationLevelByName(educationLevelName);
+        educationLevel.setId(educationLevelId);
+        userProfile.setEducationLevel(educationLevel);
         return this.userProfiles.save(userProfile);
     }
 
