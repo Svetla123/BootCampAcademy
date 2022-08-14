@@ -1,7 +1,7 @@
 package com.BootCampAcademy.demo.service.impl;
 
-import com.BootCampAcademy.demo.Model.EducationLevel;
-import com.BootCampAcademy.demo.Model.UserProfile;
+import com.BootCampAcademy.demo.model.EducationLevel;
+import com.BootCampAcademy.demo.model.UserProfile;
 import com.BootCampAcademy.demo.repository.UserProfileRepository;
 import com.BootCampAcademy.demo.service.IUserProfileService;
 import org.springframework.stereotype.Service;

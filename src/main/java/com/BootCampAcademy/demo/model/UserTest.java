@@ -1,40 +1,34 @@
-package com.BootCampAcademy.demo.Model;
+package com.BootCampAcademy.demo.model;
 
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
-import org.springframework.lang.Nullable;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.*;
-import java.time.Instant;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "users_tests")
-@Data
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserTest extends AppModel {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
     private long Id;
 
-    @Column(nullable = false)
-    private String submitedSolution;
-    @ColumnDefault("1")
-    private boolean state;
+    @Column(nullable = true)
     @ColumnDefault("0")
     private long achivedPoints;
 
     @ManyToOne
-    @JoinColumn(name = "solved_by")
+    @JoinColumn(name = "user_id")
     private User user;
     @ManyToOne
     @JoinColumn(name = "test_id")
     private Test test;
-
     @ManyToOne
     @JoinColumn(name = "corrected_by")
     private User corrector;
-
-
 }

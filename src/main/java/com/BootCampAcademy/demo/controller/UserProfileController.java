@@ -1,6 +1,6 @@
 package com.BootCampAcademy.demo.controller;
 
-import com.BootCampAcademy.demo.Model.UserProfile;
+import com.BootCampAcademy.demo.model.UserProfile;
 import com.BootCampAcademy.demo.service.IUserProfileService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

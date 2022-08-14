@@ -1,6 +1,6 @@
 package com.BootCampAcademy.demo.service.impl;
 
-import com.BootCampAcademy.demo.Model.UserArrival;
+import com.BootCampAcademy.demo.model.UserArrival;
 import com.BootCampAcademy.demo.repository.UserArrivalRepository;
 import com.BootCampAcademy.demo.service.IUserArrivalService;
 import org.springframework.stereotype.Service;

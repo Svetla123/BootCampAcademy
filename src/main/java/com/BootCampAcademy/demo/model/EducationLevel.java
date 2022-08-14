@@ -1,11 +1,9 @@
-package com.BootCampAcademy.demo.Model;
+package com.BootCampAcademy.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
+
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 @Entity

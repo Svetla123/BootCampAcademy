@@ -1,5 +1,5 @@
 package com.BootCampAcademy.demo.service;
-import com.BootCampAcademy.demo.Model.User;
+import com.BootCampAcademy.demo.model.User;
 import java.util.List;
 
 public interface IUserService {

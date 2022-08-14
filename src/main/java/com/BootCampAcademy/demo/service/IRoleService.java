@@ -1,5 +1,5 @@
 package com.BootCampAcademy.demo.service;
-import com.BootCampAcademy.demo.Model.Role;
+import com.BootCampAcademy.demo.model.Role;
 import java.util.List;
 
 public interface IRoleService {

@@ -1,6 +1,6 @@
 package com.BootCampAcademy.demo.service.impl;
 
-import com.BootCampAcademy.demo.Model.Test;
+import com.BootCampAcademy.demo.model.Test;
 import com.BootCampAcademy.demo.repository.TestRepository;
 import com.BootCampAcademy.demo.service.ITestService;
 import org.springframework.stereotype.Service;

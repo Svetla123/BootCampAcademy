@@ -1,11 +1,10 @@
-package com.BootCampAcademy.demo.Model;
+package com.BootCampAcademy.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Data

@@ -1,4 +1,4 @@
-package com.BootCampAcademy.demo.Model;
+package com.BootCampAcademy.demo.model;
 import javax.persistence.*;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
@@ -7,7 +7,6 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.Date;
 @Data
 @MappedSuperclass

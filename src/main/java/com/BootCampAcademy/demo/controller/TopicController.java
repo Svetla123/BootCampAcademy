@@ -1,6 +1,6 @@
 package com.BootCampAcademy.demo.controller;
 
-import com.BootCampAcademy.demo.Model.Topic;
+import com.BootCampAcademy.demo.model.Topic;
 import com.BootCampAcademy.demo.service.ITopicService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

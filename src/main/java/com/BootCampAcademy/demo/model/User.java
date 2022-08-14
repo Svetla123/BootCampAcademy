@@ -1,15 +1,18 @@
-package com.BootCampAcademy.demo.Model;
+package com.BootCampAcademy.demo.model;
 
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-@Data
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @SecondaryTable(name = "userProfiles")
 public class User extends AppModel {
 

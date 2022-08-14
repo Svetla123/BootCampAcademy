@@ -1,11 +1,16 @@
 package com.BootCampAcademy.demo.service.impl;
 
-import com.BootCampAcademy.demo.Model.UserTest;
-import com.BootCampAcademy.demo.repository.UserRepository;
+import com.BootCampAcademy.demo.model.Meeting;
+import com.BootCampAcademy.demo.model.Test;
+import com.BootCampAcademy.demo.model.User;
+import com.BootCampAcademy.demo.model.UserTest;
 import com.BootCampAcademy.demo.repository.UserTestRepository;
 import com.BootCampAcademy.demo.service.IUserTestService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 @Service
 public class UserTestService implements IUserTestService {
@@ -18,13 +23,13 @@ public class UserTestService implements IUserTestService {
 
     @Override
     public UserTest findUserTestById(Long id) {
-        try {
-           return this.userTests.findById(id).get();
-        }
-        catch (Exception e) {
+        try{
+            return this.userTests.findById(id).get();
+        } catch (Exception e) {
             return null;
         }
     }
+
     @Override
     public List<UserTest> findAllUserTests() {
         return this.userTests.findAll();
@@ -32,10 +37,12 @@ public class UserTestService implements IUserTestService {
 
     @Override
     public boolean deleteUserTest(Long id) {
+        UserTest userTest = this.findUserTestById(id);
+
         try {
-            this.userTests.deleteById(id);
+            this.userTests.delete(userTest);
         }
-        catch (Exception e) {
+        catch (Exception e){
             return false;
         }
         finally {
@@ -44,33 +51,30 @@ public class UserTestService implements IUserTestService {
     }
 
     @Override
-    public UserTest saveUserTest(UserTest userTest) {
+    public UserTest createUserTest(UserTest userTest) {
         return this.userTests.save(userTest);
     }
 
     @Override
-    public UserTest updateUserTest(Long id, UserTest userTest) {
+    public UserTest updateUserTest(long id, UserTest userTest) {
         UserTest oldUserTest = this.findUserTestById(id);
+
         if (oldUserTest == null) {
             return null;
-        }else {
-            if (userTest.getSubmitedSolution()!= null) {
-                oldUserTest.setSubmitedSolution(userTest.getSubmitedSolution());
-            }
-            if (userTest.getAchivedPoints() != 0) {
+        } else {
+            if (userTest.getAchivedPoints() != 0.0) {
                 oldUserTest.setAchivedPoints(userTest.getAchivedPoints());
+            }
+            if (userTest.getTest() != null) {
+                oldUserTest.setTest(userTest.getTest());
             }
             if (userTest.getUser() != null) {
                 oldUserTest.setUser(userTest.getUser());
             }
-
-            if (userTest.getTest() != null) {
-                oldUserTest.setTest(userTest.getTest());
-            }
             if (userTest.getCorrector() != null) {
                 oldUserTest.setCorrector(userTest.getCorrector());
             }
+            return this.userTests.save(oldUserTest);
         }
-        return this.userTests.save(oldUserTest);
     }
 }

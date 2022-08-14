@@ -1,4 +1,4 @@
-package com.BootCampAcademy.demo.Model;
+package com.BootCampAcademy.demo.model;
 
 import lombok.Data;
 import javax.persistence.*;

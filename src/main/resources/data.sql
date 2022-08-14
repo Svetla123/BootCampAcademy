@@ -9,8 +9,8 @@ insert into topics ( name,description, expected_hours) values ('Java', 'Java is 
 insert into topics (name,description, expected_hours) values ( 'SpringBoot','Framework for the JAVA language.', 40);
 insert into topics ( name,description, expected_hours) values ( 'Postman','Restful API.', 20);
 insert into topics ( name,description, expected_hours) values ( 'GIT','Working with GIT repositories.', 10);
--- -- education_levels
-
+-- -- -- education_levels
+--
 insert into education_levels ( name, abbreviation) values ( 'Bachelor of Science in Business Administration', 'B.S.B.A.');
 insert into education_levels ( name, abbreviation) values ( 'Bachelor of Science in Education', 'B.S.Ed.');
 insert into education_levels ( name, abbreviation) values ( 'Bachelor', 'Bc.');
@@ -21,7 +21,7 @@ insert into education_levels ( name, abbreviation) values ( 'Master ', 'M.');
 insert into education_levels ( name, abbreviation) values ( 'Doctor of Education', 'D.P.C.');
 insert into education_levels ( name, abbreviation) values ( 'Educational Specialist', 'Ed.S.');
 insert into education_levels ( name, abbreviation) values ( 'High school ', 'H.S.');
--- -- tests
+-- -- -- tests
 insert into tests ( name, description, deadline, possible_points) values ( 'SQL basics', 'INSERT/CREATE/SELECT', "2022-07-22", 5);
 insert into tests ( name, description, deadline, possible_points) values ( 'SQL advanced', 'TRIGGERS & JOINS', "2022-07-25", 10);
 insert into tests ( name, description, deadline, possible_points) values ('DB model', 'Create model for your project', "2022-07-28", 15);
@@ -47,19 +47,12 @@ insert into users ( email, password, arrival_sum, sum_points, user_profile_id, r
 insert into users ( email, password, arrival_sum, sum_points, user_profile_id, role_id, username) VALUES ( "ivic.ivica@gmail.com", "lozinka", 0, 0, 2, 3, "amigo213");
 insert into users ( email, password, user_profile_id, role_id, username) VALUES ( "ilic.miroslav@gmail.com", "lozinka", 3, 2, "nemamUsername");
 insert into users ( email, password, user_profile_id, role_id, username) VALUES ( "muric.mijo@gmail.com", "lozinka", 4, 1, "mama");
--- --users_tests
-insert into users_tests ( solved_by, test_id, submited_solution) values ( 1, 1, 'adresa');
-insert into users_tests ( solved_by, test_id, submited_solution) values ( 1, 2,  'adresa');
-insert into users_tests ( solved_by, test_id, submited_solution) values ( 1, 3,  'adresa');
-insert into users_tests ( solved_by, test_id, submited_solution) values ( 1, 4, 'adresa');
+--users_tests
+insert into users_tests ( user_id, test_id) values ( 1, 1);
+insert into users_tests ( user_id, test_id) values ( 1, 2);
+insert into users_tests ( user_id, test_id) values ( 1, 3);
+insert into users_tests ( user_id, test_id) values ( 1, 4);
 
 -- --users_arrivals
 insert into users_arrivals ( user_id, meeting_id,  arrival_approved) values ( 1, 1,  1);
 insert into users_arrivals ( user_id, meeting_id,  arrival_approved) values ( 1, 2, 1);
-
-
-
-
-
-
-

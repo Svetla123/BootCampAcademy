@@ -1,5 +1,5 @@
 package com.BootCampAcademy.demo.controller;
-import com.BootCampAcademy.demo.Model.EducationLevel;
+import com.BootCampAcademy.demo.model.EducationLevel;
 import com.BootCampAcademy.demo.service.IEducationLevelService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

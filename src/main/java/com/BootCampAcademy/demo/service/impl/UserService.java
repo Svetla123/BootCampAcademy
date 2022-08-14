@@ -1,7 +1,6 @@
 package com.BootCampAcademy.demo.service.impl;
 
-import com.BootCampAcademy.demo.Model.User;
-import com.BootCampAcademy.demo.repository.UserProfileRepository;
+import com.BootCampAcademy.demo.model.User;
 import com.BootCampAcademy.demo.repository.UserRepository;
 import com.BootCampAcademy.demo.service.IUserService;
 import org.springframework.stereotype.Service;

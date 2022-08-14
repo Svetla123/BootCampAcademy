@@ -1,6 +1,6 @@
 package com.BootCampAcademy.demo.service;
 
-import com.BootCampAcademy.demo.Model.Meeting;
+import com.BootCampAcademy.demo.model.Meeting;
 
 import java.util.List;
 

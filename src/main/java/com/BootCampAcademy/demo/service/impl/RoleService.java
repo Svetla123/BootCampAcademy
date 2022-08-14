@@ -1,6 +1,6 @@
 package com.BootCampAcademy.demo.service.impl;
 
-import com.BootCampAcademy.demo.Model.Role;
+import com.BootCampAcademy.demo.model.Role;
 import com.BootCampAcademy.demo.repository.RoleRepository;
 import com.BootCampAcademy.demo.service.IRoleService;
 import org.springframework.stereotype.Service;

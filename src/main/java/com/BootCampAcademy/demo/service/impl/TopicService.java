@@ -1,17 +1,11 @@
 package com.BootCampAcademy.demo.service.impl;
 
-import com.BootCampAcademy.demo.Model.Test;
-import com.BootCampAcademy.demo.Model.Topic;
-import com.BootCampAcademy.demo.repository.TestRepository;
+import com.BootCampAcademy.demo.model.Topic;
 import com.BootCampAcademy.demo.repository.TopicRepository;
 import com.BootCampAcademy.demo.service.ITopicService;
 import org.springframework.stereotype.Service;
 
-import java.security.Timestamp;
-import java.time.Instant;
 import java.util.List;
-
-import static java.lang.System.currentTimeMillis;
 
 @Service
 public class TopicService implements ITopicService {

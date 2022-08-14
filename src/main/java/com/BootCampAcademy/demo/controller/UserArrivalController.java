@@ -1,6 +1,6 @@
 package com.BootCampAcademy.demo.controller;
 
-import com.BootCampAcademy.demo.Model.UserArrival;
+import com.BootCampAcademy.demo.model.UserArrival;
 import com.BootCampAcademy.demo.service.IMeetingService;
 import com.BootCampAcademy.demo.service.IUserArrivalService;
 import com.BootCampAcademy.demo.service.IUserService;

@@ -1,7 +1,6 @@
 package com.BootCampAcademy.demo.controller;
-import com.BootCampAcademy.demo.Model.Test;
+import com.BootCampAcademy.demo.model.Test;
 import com.BootCampAcademy.demo.service.ITestService;
-import com.BootCampAcademy.demo.service.IUserProfileService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

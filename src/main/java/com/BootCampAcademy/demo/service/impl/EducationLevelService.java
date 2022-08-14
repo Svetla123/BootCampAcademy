@@ -1,10 +1,8 @@
 package com.BootCampAcademy.demo.service.impl;
 
-import com.BootCampAcademy.demo.Model.EducationLevel;
+import com.BootCampAcademy.demo.model.EducationLevel;
 import com.BootCampAcademy.demo.repository.EducationLevelRepository;
-import com.BootCampAcademy.demo.repository.TopicRepository;
 import com.BootCampAcademy.demo.service.IEducationLevelService;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

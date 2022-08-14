@@ -1,6 +1,6 @@
 package com.BootCampAcademy.demo.service.impl;
 
-import com.BootCampAcademy.demo.Model.Meeting;
+import com.BootCampAcademy.demo.model.Meeting;
 import com.BootCampAcademy.demo.repository.MeetingRepository;
 import com.BootCampAcademy.demo.service.IMeetingService;
 import org.springframework.stereotype.Service;

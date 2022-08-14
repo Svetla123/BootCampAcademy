@@ -1,5 +1,5 @@
 package com.BootCampAcademy.demo.controller;
-import com.BootCampAcademy.demo.Model.Role;
+import com.BootCampAcademy.demo.model.Role;
 import com.BootCampAcademy.demo.service.IRoleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

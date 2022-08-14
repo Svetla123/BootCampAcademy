@@ -1,6 +1,6 @@
 package com.BootCampAcademy.demo.service;
 
-import com.BootCampAcademy.demo.Model.UserArrival;
+import com.BootCampAcademy.demo.model.UserArrival;
 
 import java.util.List;
 
