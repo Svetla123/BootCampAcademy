@@ -27,6 +27,9 @@ public class UserProfile extends AppModel {
     private String faculty;
     @Column(nullable = false)
     private String residence;
+    private String bio;
+    private String gender;
+
 
     @ManyToOne
     @JoinColumn(name = "educationLevel_id")
@@ -35,4 +38,8 @@ public class UserProfile extends AppModel {
     @OneToOne (mappedBy = "userProfile")
     @JsonIgnore
     private User user;
+
+    @OneToOne
+    @JoinColumn(name = "profileImage_id")
+    private ProfileImage profileImage;
 }

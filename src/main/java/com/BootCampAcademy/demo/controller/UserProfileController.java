@@ -18,13 +18,13 @@ public class UserProfileController {
         this.userProfileService = userProfileService;
     }
 
-    @GetMapping("/userProfiles")
+    @GetMapping("/api/userProfiles")
     public List<UserProfile> findAll() {
         List<UserProfile> userProfiles = this.userProfileService.findAllUserProfiles();
         return userProfiles;
     }
 
-    @GetMapping("/userProfiles/{id}")
+    @GetMapping("/api/userProfiles/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
         UserProfile userProfile = this.userProfileService.findUserProfileById(id);
         if (userProfile == null) {
@@ -33,7 +33,7 @@ public class UserProfileController {
         return ResponseEntity.ok(userProfile);
     }
 
-    @DeleteMapping("userProfiles/{id}")
+    @DeleteMapping("/api/userProfiles/{id}")
     public ResponseEntity<?> delete (@PathVariable Long id) {
         boolean result  = this.userProfileService.deleteUserProfile(id);
 
@@ -45,13 +45,13 @@ public class UserProfileController {
         }
     }
 //only create that works like "name" : "Bachelor"
-    @PostMapping ("/userProfiles")
+    @PostMapping ("/api/userProfiles")
     public ResponseEntity<?> create (@RequestBody UserProfile userProfile) {
         UserProfile newUserProfile = this.userProfileService.createUserProfile(userProfile);
         return ResponseEntity.ok(newUserProfile);
     }
 
-    @PutMapping("/userProfiles/{id}")
+    @PutMapping("/api/userProfiles/{id}")
     public ResponseEntity<?> update (@PathVariable Long id, @RequestBody UserProfile userProfile) {
         UserProfile updatedUserProfile = this.userProfileService.updateUserProfile(id, userProfile);
         if (updatedUserProfile == null) {

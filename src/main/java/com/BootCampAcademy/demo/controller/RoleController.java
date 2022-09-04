@@ -17,13 +17,13 @@ public class RoleController {
         this.rolesService = rolesService;
     }
 
-    @GetMapping("/roles")
+    @GetMapping("/api/roles")
     public List<Role> findAll () {
         List <Role> roles = this.rolesService.findAllRoles();
         return roles;
     }
 
-    @GetMapping("/roles/{id}")
+    @GetMapping("/api/roles/{id}")
     public ResponseEntity <?> findById (@PathVariable Long id) {
         Role role = this.rolesService.findRoleById(id);
         if (role == null) {
@@ -32,14 +32,14 @@ public class RoleController {
         return ResponseEntity.ok(role);
     }
 
-    @PostMapping("/roles")
+    @PostMapping("/api/roles")
     public ResponseEntity <?> create (@RequestBody Role role) {
         Role newRole = this.rolesService.createRole(role);
         return ResponseEntity.ok(newRole);
     }
 
 
-    @DeleteMapping("/roles/{id}")
+    @DeleteMapping("/api/roles/{id}")
     public ResponseEntity <?> delete (@PathVariable Long id) {
         boolean result = this.rolesService.deleteRole(id);
         if (result) {
@@ -48,7 +48,7 @@ public class RoleController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Role with id " + id + " not found");
     }
 
-    @PutMapping("/roles/{id}")
+    @PutMapping("/api/roles/{id}")
     public ResponseEntity <?> update (@PathVariable Long id, @RequestBody Role role) {
         Role updatedRole = this.rolesService.updateRole(id, role);
         if (updatedRole == null) {

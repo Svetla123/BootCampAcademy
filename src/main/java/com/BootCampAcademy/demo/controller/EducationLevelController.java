@@ -16,13 +16,13 @@ public class EducationLevelController {
         this.educationLevelService = educationLevelService;
     }
 
-    @GetMapping("/educationlevels")
+    @GetMapping("/api/educationlevels")
     public List<EducationLevel> findAll () {
         List<EducationLevel> educationLevels = this.educationLevelService.findAllEducationLevels();
         return educationLevels;
     }
 
-    @GetMapping("/educationlevels/{id}")
+    @GetMapping("/api/educationlevels/{id}")
     public ResponseEntity<?> findById (@PathVariable Long id) {
         EducationLevel educationLevel = this.educationLevelService.findEducationLevelById(id);
         if (educationLevel == null) {
@@ -31,7 +31,7 @@ public class EducationLevelController {
         return ResponseEntity.ok(educationLevel);
     }
 
-    @DeleteMapping("/educationlevels/{id}")
+    @DeleteMapping("/api/educationlevels/{id}")
     public ResponseEntity<?> delete (@PathVariable Long id) {
         boolean result = this.educationLevelService.deleteEducationLevel(id);
         if (result) {
@@ -40,13 +40,13 @@ public class EducationLevelController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("EducationLevel with id " + id + " not found");
     }
 
-    @PostMapping ("/educationlevels")
+    @PostMapping ("/api/educationlevels")
     public ResponseEntity<?> create (@RequestBody EducationLevel educationLevel) {
         EducationLevel newEducationLevel = this.educationLevelService.createEducationLevel(educationLevel);
         return ResponseEntity.ok(newEducationLevel);
     }
 
-    @PutMapping("/educationlevels/{id}")
+    @PutMapping("/api/educationlevels/{id}")
     public ResponseEntity<?> update (@PathVariable Long id, @RequestBody EducationLevel educationLevel) {
         EducationLevel updatedEducationLevel = this.educationLevelService.updateEducationLevel(id, educationLevel);
         if (updatedEducationLevel == null) {

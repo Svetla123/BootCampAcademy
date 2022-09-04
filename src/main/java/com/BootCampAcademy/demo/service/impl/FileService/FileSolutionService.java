@@ -55,7 +55,7 @@ public class FileSolutionService implements IFileSolutionService {
         System.out.println(userTestId);
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
         UserTest userTest = this.userTestService.findUserTestById(userTestId);
-        System.out.println(userTest);
+
         try {
             // Check if the file's name contains invalid characters
             if(fileName.contains("..")) {

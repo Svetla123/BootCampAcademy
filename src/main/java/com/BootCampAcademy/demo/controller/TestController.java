@@ -16,13 +16,13 @@ public class TestController {
         this.testService = testService;
     }
 
-    @GetMapping("/tests")
+    @GetMapping("/api/tests")
     public List<Test> findAll() {
         List<Test> tests = this.testService.findAllTests();
         return tests;
     }
 
-    @GetMapping("/tests/{id}")
+    @GetMapping("/api/tests/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
         Test test = this.testService.findTestById(id);
         if (test == null) {
@@ -31,7 +31,7 @@ public class TestController {
         return ResponseEntity.ok(test);
     }
 
-    @DeleteMapping("tests/{id}")
+    @DeleteMapping("/api/tests/{id}")
     public ResponseEntity<?> delete (@PathVariable Long id) {
         boolean result  = this.testService.deleteTest(id);
 
@@ -43,13 +43,13 @@ public class TestController {
         }
     }
 
-    @PostMapping ("/tests")
+    @PostMapping ("/api/tests")
     public ResponseEntity<?> create (@RequestBody Test test) {
         Test newTest = this.testService.createTest(test);
         return ResponseEntity.ok(newTest);
     }
 
-    @PutMapping("/tests/{id}")
+    @PutMapping("/api/tests/{id}")
     public ResponseEntity<?> update (@PathVariable Long id, @RequestBody Test test) {
         Test updatedTest = this.testService.updateTest(id, test);
         if (updatedTest == null) {

@@ -17,13 +17,13 @@ public class TopicController {
         this.topicService = topicService;
     }
 
-    @GetMapping("/topics")
+    @GetMapping("/api/topics")
     public List<Topic> findAll () {
         List<Topic> topics = this.topicService.findAllTopics();
         return topics;
     }
 
-    @GetMapping("/topics/{id}")
+    @GetMapping("/api/topics/{id}")
     public ResponseEntity <?> findById (@PathVariable Long id){
         Topic topic = this.topicService.findTopicById(id);
         if (topic == null){
@@ -32,13 +32,13 @@ public class TopicController {
         return ResponseEntity.ok(topic);
     }
 
-    @PostMapping ("/topics")
+    @PostMapping ("/api/topics")
     public ResponseEntity <?> create (@RequestBody Topic topic){
         Topic newTopic = this.topicService.createTopic(topic);
         return ResponseEntity.ok(newTopic);
     }
 
-    @DeleteMapping ("/topics/{id}")
+    @DeleteMapping ("/api/topics/{id}")
     public ResponseEntity <?> delete (@PathVariable Long id){
         boolean result = this.topicService.deleteTopic(id);
         if (result){
@@ -47,7 +47,7 @@ public class TopicController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Topic with id " + id + " not found");
     }
 
-    @PutMapping ("/topics/{id}")
+    @PutMapping ("/api/topics/{id}")
     public ResponseEntity <?> update (@PathVariable Long id, @RequestBody Topic topic){
         Topic updatedTopic = this.topicService.updateTopic(id, topic);
         if (updatedTopic == null){

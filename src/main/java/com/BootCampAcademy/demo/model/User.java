@@ -50,4 +50,8 @@ public class User extends AppModel {
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     private List<UserArrival> userArrivals;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Comment> comments;
 }

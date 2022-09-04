@@ -31,4 +31,8 @@ public class Meeting extends AppModel {
     @OneToMany (mappedBy = "meeting")
     @JsonIgnore
     private List<UserArrival> userArrivals;
+
+    @OneToMany(mappedBy = "meeting")
+    @JsonIgnore
+    private List<Comment> comments;
 }

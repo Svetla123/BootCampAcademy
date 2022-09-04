@@ -22,12 +22,12 @@ public class UserArrivalController {
         this.userService = userService;
         this.meetingService = meetingService;
     }
-    @GetMapping("/userarrivals")
+    @GetMapping("/api/userarrivals")
     public List<UserArrival> findAll () {
         List<UserArrival> userArrivals = this.userArrivalService.findAllUserArrivals();
         return userArrivals;
     }
-    @GetMapping("/userarrivals/{id}")
+    @GetMapping("/api/userarrivals/{id}")
     public ResponseEntity<?> findById (@PathVariable Long id) {
         UserArrival userArrival = this.userArrivalService.findUserArrivalById(id);
         if (userArrival == null) {
@@ -36,7 +36,7 @@ public class UserArrivalController {
         return ResponseEntity.ok(userArrival);
     }
 
-    @DeleteMapping ("/userarrivals{id}")
+    @DeleteMapping ("/api/userarrivals{id}")
     public ResponseEntity<?> delete (@PathVariable Long id) {
         boolean result  = this.userArrivalService.deleteUserArrival(id);
         if (result) {
@@ -47,7 +47,7 @@ public class UserArrivalController {
         }
     }
 
-    @PostMapping("/userarrivals")
+    @PostMapping("/api/userarrivals")
     public ResponseEntity<?> create (@RequestBody UserArrival userArrival) {
 //        userArrival.getUser().setId(userService.findUserByUsername(userArrival.getUser().getUsername()));
 
@@ -57,7 +57,7 @@ public class UserArrivalController {
         return ResponseEntity.ok(newUserArrival);
     }
 
-    @PutMapping("/userarrivals/{id}")
+    @PutMapping("/api/userarrivals/{id}")
     public ResponseEntity<?> update (@PathVariable Long id, @RequestBody UserArrival userArrival) {
         UserArrival updatedUserArrival = this.userArrivalService.updateUserArrival(id, userArrival);
         if (updatedUserArrival == null) {

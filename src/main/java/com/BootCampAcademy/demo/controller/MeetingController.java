@@ -18,13 +18,13 @@ public class MeetingController {
         this.meetingService = meetingService;
     }
 
-    @GetMapping("/meetings")
+    @GetMapping("/api/meetings")
     public List<Meeting> findAll () {
         List<Meeting> meetings = this.meetingService.findAllMeetings();
         return meetings;
     }
 
-    @GetMapping("/meetings/{id}")
+    @GetMapping("/api/meetings/{id}")
     public ResponseEntity<?> findById (@PathVariable Long id) {
         Meeting meeting = this.meetingService.findMeetingById(id);
         if (meeting == null) {
@@ -33,13 +33,13 @@ public class MeetingController {
         return ResponseEntity.ok(meeting);
     }
 
-    @PostMapping("/meetings")
+    @PostMapping("/api/meetings")
     public ResponseEntity<?> create (@RequestBody Meeting meeting) {
        Meeting newMeeting = this.meetingService.createMeeting(meeting);
         return ResponseEntity.ok(newMeeting);
     }
 
-    @DeleteMapping("/meetings/{id}")
+    @DeleteMapping("/api/meetings/{id}")
     public ResponseEntity<?> delete (@PathVariable Long id) {
         boolean result  = this.meetingService.deleteMeeting(id);
 
@@ -51,7 +51,7 @@ public class MeetingController {
         }
     }
 
-    @PutMapping("/meetings/{id}")
+    @PutMapping("/api/meetings/{id}")
     public ResponseEntity<?> update (@RequestBody Meeting meeting, @PathVariable Long id) {
         Meeting updatedMeeting = this.meetingService.updateMeeting(meeting, id);
         if (updatedMeeting == null) {

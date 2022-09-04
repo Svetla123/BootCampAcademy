@@ -10,7 +10,6 @@ insert into topics (name,description, expected_hours) values ( 'SpringBoot','Fra
 insert into topics ( name,description, expected_hours) values ( 'Postman','Restful API.', 20);
 insert into topics ( name,description, expected_hours) values ( 'GIT','Working with GIT repositories.', 10);
 -- -- -- education_levels
---
 insert into education_levels ( name, abbreviation) values ( 'Bachelor of Science in Business Administration', 'B.S.B.A.');
 insert into education_levels ( name, abbreviation) values ( 'Bachelor of Science in Education', 'B.S.Ed.');
 insert into education_levels ( name, abbreviation) values ( 'Bachelor', 'Bc.');
@@ -38,21 +37,24 @@ insert into meetings (  meeting_begin, meeting_end, topic_id, name, location) va
 insert into meetings (  meeting_begin, meeting_end, topic_id, name, location) values ( "2022-08-04 13:00", "2022-08-04 14:30", 3, "GIT", "Ured");
 insert into meetings (  meeting_begin, meeting_end, topic_id, name, location) values (  "2022-08-08 13:00", "2022-08-08 14:30", 3, "Postman", "Online");
 -- -- user profiles
-insert into user_profiles ( birth_date, faculty, mobile, name, residence, surname, education_level_id) values ( '2000-02-28', 'Faculty of Organization and Informatics', '+385997585344', 'Luka', 'Ivanić-Grad', 'Svetlečić', 3);
-insert into user_profiles ( birth_date, faculty, mobile, name, residence, surname, education_level_id) values ( '1995-07-18', 'Veleučilište  Velika Gorica', '+385923712223', 'Ivica', 'Velika Gorica', 'Ivić', 4);
-insert into user_profiles ( birth_date, faculty, mobile, name, residence, surname, education_level_id) values ( '2001-12-12', 'FER', '+385997523456', 'Miroslav', 'Zagreb', 'Ilić', 7);
-insert into user_profiles ( birth_date, faculty, mobile, name, residence, surname, education_level_id) values ( '1999-12-22', 'Veleičilište Velika Gorica', '+385235622223', 'Mijo', 'Kloštar-Ivanić', 'Murič', 10);
+insert into user_profiles ( birth_date, faculty, mobile, name, residence, surname, education_level_id, gender, bio, profile_image_id) values ( '2000-02-28', 'Faculty of Organization and Informatics', '+385997585344', 'Luka', 'Ivanić-Grad', 'Svetlečić', 3, "male", "Ilove frontend",1);
+insert into user_profiles ( birth_date, faculty, mobile, name, residence, surname, education_level_id, gender, bio,profile_image_id) values ( '1995-07-18', 'Veleučilište  Velika Gorica', '+385923712223', 'Ivica', 'Velika Gorica', 'Ivić', 4, "female", "I love backend",2);
+insert into user_profiles ( birth_date, faculty, mobile, name, residence, surname, education_level_id,  gender, bio,profile_image_id) values ( '2001-12-12', 'FER', '+385997523456', 'Miroslav', 'Zagreb', 'Ilić', 7, "male", "Ilove security",3);
+insert into user_profiles ( birth_date, faculty, mobile, name, residence, surname, education_level_id,  gender, bio,profile_image_id) values ( '1999-12-22', 'Veleičilište Velika Gorica', '+385235622223', 'Mijo', 'Kloštar-Ivanić', 'Murič', 10, "male", "Ilove security",4);
 -- --users
-insert into users ( email, password, arrival_sum, sum_points, user_profile_id, role_id, username) VALUES ( "svetlecic.luka@gmail.com", "lozinka", 0, 0, 1, 3, "roki");
-insert into users ( email, password, arrival_sum, sum_points, user_profile_id, role_id, username) VALUES ( "ivic.ivica@gmail.com", "lozinka", 0, 0, 2, 3, "amigo213");
-insert into users ( email, password, user_profile_id, role_id, username) VALUES ( "ilic.miroslav@gmail.com", "lozinka", 3, 2, "nemamUsername");
-insert into users ( email, password, user_profile_id, role_id, username) VALUES ( "muric.mijo@gmail.com", "lozinka", 4, 1, "mama");
+insert into users ( email, password, arrival_sum, sum_points, user_profile_id, role_id,username) VALUES ( "svetlecic.luka@gmail.com", "lozinka", 0, 0, 1, 3, "roki");
+insert into users ( email, password, arrival_sum, sum_points, user_profile_id, role_id,  username) VALUES ( "ivic.ivica@gmail.com", "lozinka", 0, 0, 2, 3, "amigo213");
+insert into users ( email, password, user_profile_id, role_id,  username) VALUES ( "ilic.miroslav@gmail.com", "lozinka", 3, 2, "nemamUsername");
+insert into users ( email, password, user_profile_id, role_id,  username) VALUES ( "muric.mijo@gmail.com", "lozinka", 4, 1, "mama");
 --users_tests
 insert into users_tests ( user_id, test_id) values ( 1, 1);
 insert into users_tests ( user_id, test_id) values ( 1, 2);
 insert into users_tests ( user_id, test_id) values ( 1, 3);
 insert into users_tests ( user_id, test_id) values ( 1, 4);
-
 -- --users_arrivals
 insert into users_arrivals ( user_id, meeting_id,  arrival_approved) values ( 1, 1,  1);
 insert into users_arrivals ( user_id, meeting_id,  arrival_approved) values ( 1, 2, 1);
+-- --comments
+insert into comments (id, comment, user_id, meeting_id) values ( 1, "I love this meeting", 1, 1);
+insert into comments (id, comment, user_id, meeting_id) values ( 2, "Cna we change time of the meeting", 1, 2);
+insert into comments (id, comment, user_id, meeting_id) values ( 3, "Happy to see you.", 1, 3);

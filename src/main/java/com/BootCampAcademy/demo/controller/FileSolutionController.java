@@ -27,13 +27,13 @@ public class FileSolutionController {
         this.fileSolutionService = fileSolutionService;
     }
 
-    @GetMapping("/fileSolutions")
+    @GetMapping("/api/fileSolutions")
     public List<FileSolution> findAll() {
         List <FileSolution> fileSolutions = this.fileSolutionService.findAllFiles();
         return fileSolutions;
     }
 
-    @GetMapping("/fileSolutions/{id}")
+    @GetMapping("/api/fileSolutions/{id}")
     public ResponseEntity<?> findById (@PathVariable Long id) {
         FileSolution fileSolution = this.fileSolutionService.findFileById(id);
         if (fileSolution == null) {
@@ -42,7 +42,7 @@ public class FileSolutionController {
         return ResponseEntity.ok(fileSolution);
     }
 
-    @DeleteMapping("/fileSolutions/{id}")
+    @DeleteMapping("/api/fileSolutions/{id}")
     public ResponseEntity<?> delete (@PathVariable Long id) {
         boolean result  = this.fileSolutionService.deleteFile(id);
         if (result) {
@@ -53,7 +53,7 @@ public class FileSolutionController {
         }
     }
 
-    @PostMapping("/fileSolutions")
+    @PostMapping("/api/fileSolutions")
     public Response create(@RequestParam("file") MultipartFile file, @RequestParam("userTest") Long userTestId) {
         System.out.println(userTestId);
         FileSolution fileSolution = fileSolutionService.saveFile(file,userTestId);
@@ -66,7 +66,7 @@ public class FileSolutionController {
                 file.getContentType(), file.getSize());
     }
 
-    @PostMapping("/multipleFiles")
+    @PostMapping("/api/multipleFiles")
     public List<Response> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files, @RequestParam("userTest") Long userTestId) {
         return Arrays.asList(files)
                 .stream()
@@ -74,7 +74,7 @@ public class FileSolutionController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/fileDownload/{fileName:.+}")
+    @GetMapping("/api/fileDownload/{fileName:.+}")
     public ResponseEntity<ByteArrayResource> downloadFile(@PathVariable Long fileName, HttpServletRequest request) {
         // Load file as Resource
         FileSolution fileSolution = fileSolutionService.findFileById(fileName);

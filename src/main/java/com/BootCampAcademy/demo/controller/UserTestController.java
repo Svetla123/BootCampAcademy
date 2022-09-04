@@ -27,13 +27,13 @@ public class UserTestController {
         this.userTestService = userTestService;
     }
 
-    @GetMapping("/userTests")
+    @GetMapping("/api/userTests")
     public List<UserTest> findAll() {
         List <UserTest> userTests = this.userTestService.findAllUserTests();
         return userTests;
     }
 
-    @GetMapping("/userTests/{id}")
+    @GetMapping("/api/userTests/{id}")
     public ResponseEntity<?> findById (@PathVariable Long id) {
         UserTest userTest = this.userTestService.findUserTestById(id);
         if (userTest == null) {
@@ -42,7 +42,7 @@ public class UserTestController {
         return ResponseEntity.ok(userTest);
     }
 
-    @DeleteMapping("/userTests/{id}")
+    @DeleteMapping("/api/userTests/{id}")
     public ResponseEntity<?> delete (@PathVariable Long id) {
         boolean result  = this.userTestService.deleteUserTest(id);
         if (result) {
@@ -53,13 +53,13 @@ public class UserTestController {
         }
     }
 
-    @PostMapping("/userTests")
+    @PostMapping("/api/userTests")
     public ResponseEntity<?> create (@RequestBody UserTest userTest) {
         UserTest newUserTest = this.userTestService.createUserTest(userTest);
         return ResponseEntity.ok(newUserTest);
     }
 
-    @PutMapping ("/userTests/{id}")
+    @PutMapping ("/api/userTests/{id}")
     public ResponseEntity<?> update (@RequestBody UserTest userTest, @PathVariable Long id) {
         UserTest updatedUserTest = this.userTestService.updateUserTest(id,userTest);
         if (updatedUserTest == null) {
